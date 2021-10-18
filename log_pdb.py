@@ -26,13 +26,15 @@ def debug():
                 exception_type, exception_object, exception_traceback = sys.exc_info()
                 filename = exception_traceback.tb_frame.f_code.co_filename
                 line_number = exception_traceback.tb_lineno
+                line_origin = exception_traceback.tb_next.tb_lineno
+                parameters = exception_traceback.tb_next.tb_frame.f_locals
 
                 print("\nException type: ", exception_type)
                 print("File name: ", filename)
                 print("Line number: ", line_number)
 
-                print("Line origin: ", exception_traceback.tb_next.tb_lineno)
-                print("Parameters: ", exception_traceback.tb_next.tb_frame.f_locals)
+                print("Line origin: ", line_origin)
+                print("Parameters: ", parameters)
                 
                 post_mortem(sys.exc_info()[2])
         return execute_func
