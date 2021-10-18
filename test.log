@@ -1,0 +1,2 @@
+INFO:__main__:Entrei na função div
+INFO:__main__:div args:(2, 0) error:division by zero
